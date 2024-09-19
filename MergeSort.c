@@ -57,13 +57,34 @@ void mergeSort(int arr[], int l, int r) {
 	    mergeSort(arr, mid+1, r);
 	    merge(arr, l, mid, r);
 	}
-}	
+}
+
+int test() {
+        int inarr[] = {3,2,1,4,7,6,5};
+        int n = sizeof(inarr)/sizeof(int);
+        int outarr[] = {1,2,3,4,5,6,7};
+        mergeSort(inarr,0,n-1);
+        int i;
+	for(i=0; i <n;i++) {
+            printf("%d", inarr[i]);
+	}
+	printf("\n");
+	for(i=0; i <n;i++) {
+	    printf("%d", outarr[i]);
+	}
+	printf("\n");
+        for(i=0; i <n;i++) {
+            if(inarr[i] != outarr[i]) {
+                printf("Test Failed\n");
+                return -1;
+            }
+        }
+        printf("Test Passed\n");
+        return 0;
+}
+
 int main() {
-	int arr[] = {2,-3,1,3,5,1};
-	printf("\n%ld\n", sizeof(arr)/sizeof(int));
-	int n = sizeof(arr)/sizeof(int);
-	print(arr,n);
-	mergeSort(arr,0, n-1);
-	print(arr, n);
+	test();
 	return 0;
+
 }
